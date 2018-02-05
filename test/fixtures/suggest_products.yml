@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quantity: 1
+  size: 1
+  weight: 1.5
+  color: MyString
+  date: 2018-02-06
+  status: 1
+
+two:
+  name: MyString
+  quantity: 1
+  size: 1
+  weight: 1.5
+  color: MyString
+  date: 2018-02-06
+  status: 1
