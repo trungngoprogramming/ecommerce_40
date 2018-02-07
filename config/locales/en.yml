@@ -11,3 +11,47 @@ en:
   price: "$24.25"
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Amet numquam aspernatur!"
+  login: "Login"
+
+  user:
+    firstname:
+      too_long: "Firstname is too long"
+    lastname:
+      too_long: "Lastname is too long"
+    address:
+      too_long: "Address is too long"
+    city:
+      too_long: "City is too long"
+    phone:
+      too_long: "Phone number is too long"
+      too_short: "Phone number is too short"
+    company:
+      too_long: "Company name is too long"
+    password:
+      too_long: "Password is too long. Maximum is 16 chracters"
+      too_short: "Password is too short. Minimum is 8 chracters"
+
+  order:
+    address:
+      too_long: "Address is too long"
+
+  suggest_product:
+    product_name:
+      too_long: "Product Name is too long"
+
+  comment:
+    content:
+      too_long: "Content is too long"
+
+  product_group:
+    group_name:
+      too_long: "Group name is too long"
+    content:
+      too_long: "Content is too long"
+
+  product:
+    product_name:
+      too_long: "Product name is too long"
+    description:
+      too_long: "Description is too long"
+

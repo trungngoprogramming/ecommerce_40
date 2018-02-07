@@ -1,0 +1,11 @@
+<div class="col-lg-9">
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+
+    <%= f.label :password, class: "mt-20" %>
+    <%= f.password_field :password, class: "form-control" %>
+
+    <%= f.submit t("login"), class: "btn btn-lg btn-primary btn-block mt-20" %>
+  <% end %>
+</div>
