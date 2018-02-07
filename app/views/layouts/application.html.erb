@@ -9,6 +9,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <h1 class="text-center"><%= t "shop_name" %></h1>
+        <%= render "layouts/sidebar" %>
+        <%= yield %>
+    </div>
   </body>
 </html>
