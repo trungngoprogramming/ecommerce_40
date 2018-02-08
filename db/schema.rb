@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206070337) do
+ActiveRecord::Schema.define(version: 20180207083828) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float "price", limit: 24
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20180206070337) do
     t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["cart_id"], name: "index_products_on_cart_id"
     t.index ["product_group_id"], name: "index_products_on_product_group_id"
   end
