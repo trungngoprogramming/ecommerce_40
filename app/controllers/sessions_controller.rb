@@ -8,13 +8,18 @@ class SessionsController < ApplicationController
   def create
     if @user.authenticate(params[:session][:password])
       log_in @user
+      flash[:success] = t "user.welcome"
       redirect_to root_url
     else
+      flash.now[:danger] = t "user.password.invalid"
       render :new
     end
   end
 
-  def destroy; end
+  def destroy
+    logout
+    redirect_to root_url
+  end
 
   private
 
