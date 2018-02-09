@@ -9,7 +9,9 @@ en:
   gadget: "Gadget"
   return_goods: "Return Goods"
   item: "Item"
-  price: "$24.25"
+  price: "Price"
+  rate: "Rate"
+  star: "star"
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Amet numquam aspernatur!"
   login: "Login"
@@ -21,6 +23,10 @@ en:
   settings: "Settings"
   logout: "Logout"
   account: "Account"
+  size: "Size"
+  color: "Color"
+  discount: "Discount"
+  description: "Description"
 
   user:
     welcome: "Welcome to the ePhone shop"
@@ -65,3 +71,4 @@ en:
       too_long: "Product name is too long"
     description:
       too_long: "Description is too long"
+    dont_find: "Don't find Product"

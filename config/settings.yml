@@ -35,6 +35,8 @@ product:
     max_length: 50
   description:
     max_length: 255
+  per_page:
+    size: 10
 
 comment:
   content:
