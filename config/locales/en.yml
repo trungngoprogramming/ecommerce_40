@@ -17,8 +17,13 @@ en:
   contact: "Contact"
   cart: "Cart"
   home: "Home"
+  profile: "Profile"
+  settings: "Settings"
+  logout: "Logout"
+  account: "Account"
 
   user:
+    welcome: "Welcome to the ePhone shop"
     firstname:
       too_long: "Firstname is too long"
     lastname:
@@ -35,6 +40,7 @@ en:
     password:
       too_long: "Password is too long. Maximum is 16 chracters"
       too_short: "Password is too short. Minimum is 8 chracters"
+      invalid: "User or Password is invalid"
 
   order:
     address:
