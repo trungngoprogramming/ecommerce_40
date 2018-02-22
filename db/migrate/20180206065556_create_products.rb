@@ -12,7 +12,6 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.integer :rate
       t.datetime :date_of_entry
       t.references :product_group, foreign_key: true
-      t.references :cart, foreign_key: true
 
       t.timestamps
     end

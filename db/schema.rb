@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180207083828) do
+ActiveRecord::Schema.define(version: 20180222081543) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float "price", limit: 24
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180207083828) do
     t.float "total_price", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -81,12 +83,17 @@ ActiveRecord::Schema.define(version: 20180207083828) do
     t.integer "rate"
     t.datetime "date_of_entry"
     t.bigint "product_group_id"
-    t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
-    t.index ["cart_id"], name: "index_products_on_cart_id"
     t.index ["product_group_id"], name: "index_products_on_product_group_id"
+  end
+
+  create_table "products_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "cart_id"
+    t.bigint "product_id"
+    t.index ["cart_id"], name: "index_products_carts_on_cart_id"
+    t.index ["product_id"], name: "index_products_carts_on_product_id"
   end
 
   create_table "suggest_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -121,12 +128,14 @@ ActiveRecord::Schema.define(version: 20180207083828) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "carts", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "users"
-  add_foreign_key "products", "carts"
   add_foreign_key "products", "product_groups"
+  add_foreign_key "products_carts", "carts"
+  add_foreign_key "products_carts", "products"
   add_foreign_key "suggest_products", "users"
 end
