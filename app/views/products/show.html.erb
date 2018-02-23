@@ -1,28 +1,11 @@
-<ul class="list-group list-group-flush">
-  <li class="list-group-item"><%= image_tag @product.image %></li>
-  <li class="list-group-item">
-    <h3><b><%= t "product_name" %></b>: <%= @product.name %></h3>
-  </li>
-  <li class="list-group-item">
-    <b><%= t "price" %></b>: <%= product_unit @product.price, "$" %>
-  </li>
-  <li class="list-group-item">
-    <b><%= t "size" %></b>: <%= product_unit @product.size, "cm" %>
-  </li>
-  <li class="list-group-item">
-    <b><%= t "color" %></b>: <%= @product.color %>
-  </li>
-  <li class="list-group-item">
-    <b><%= t "discount" %></b>: <%= product_unit @product.discount, "%" %>
-  </li>
-  <li class="list-group-item">
-    <b><%= t "description" %></b>: <%= @product.description %>
-  </li>
-  <li class="list-group-item">
-    <b><%= t "rate" %></b>: <%= product_unit @product.rate, t("star") %>
-  </li>
-  <li class="list-group-item">
-    <%= link_to t("buy") %> |
-    <%= link_to t("add_to_cart") %>
-  </li>
-</ul>
+<div class="row">
+  <div class="list-group-item"><%= image_tag @product.image %></div>
+    <h3><b><%= t ".product_name" %></b>: <%= @product.name %></h3>
+    <h4><b><%= t ".price" %></b>: <%= product_unit @product.price, "$" %></h4>
+    <h4><b><%= t ".size" %></b>: <%= product_unit @product.size, "cm" %></h4>
+    <h4><b><%= t ".color" %></b>: <%= @product.color %></h4>
+    <h4><b><%= t ".discount" %></b>: <%= product_unit @product.discount, "%" %></h4>
+    <h4><b><%= t ".description" %></b>: <%= @product.description %></h4>
+    <h4><b><%= t ".rate" %></b>: <%= product_unit @product.rate, t(".star") %></h4>
+    <h5><%= link_to t(".add_to_cart"), "#" %></h5>
+</div>

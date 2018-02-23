@@ -14,15 +14,27 @@
 </div>
 
 <div class="row">
-  <h1><%= t "hot_trend" %></h1>
+  <h1><%= t ".hot_trend" %></h1>
   <div class="col-lg-4 col-md-6 mb-4">
     <div class="card h-100">
       <%= link_to image_tag("https://i1.wp.com/www.pcjar.com/wp-content/uploads/2017/03/LG-X-Power-2.jpg?resize=500%2C400&ssl=1"), "#" %>
       <div class="card-body">
         <h4 class="card-title">
-          <%= link_to t("item"), "#" %>
+          <%= link_to t(".item"), "#" %>
         </h4>
-        <h5><%= t "price" %></h5>
+        <h5><%= t ".price" %></h5>
+        <p class="card-text"><%= t ".content" %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 mb-4">
+    <div class="card h-100">
+      <%= link_to image_tag("https://i1.wp.com/www.pcjar.com/wp-content/uploads/2017/03/LG-X-Power-2.jpg?resize=500%2C400&ssl=1"), "#" %>
+      <div class="card-body">
+        <h4 class="card-title">
+          <%= link_to t(".item"), "#" %>
+        </h4>
+        <h5><%= t ".price" %></h5>
         <p class="card-text"><%= t "content" %></p>
       </div>
     </div>
@@ -32,22 +44,10 @@
       <%= link_to image_tag("https://i1.wp.com/www.pcjar.com/wp-content/uploads/2017/03/LG-X-Power-2.jpg?resize=500%2C400&ssl=1"), "#" %>
       <div class="card-body">
         <h4 class="card-title">
-          <%= link_to t("item"), "#" %>
+          <%= link_to t(".item"), "#" %>
         </h4>
-        <h5><%= t "price" %></h5>
-        <p class="card-text"><%= t "content" %></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 mb-4">
-    <div class="card h-100">
-      <%= link_to image_tag("https://i1.wp.com/www.pcjar.com/wp-content/uploads/2017/03/LG-X-Power-2.jpg?resize=500%2C400&ssl=1"), "#" %>
-      <div class="card-body">
-        <h4 class="card-title">
-          <%= link_to t("item"), "#" %>
-        </h4>
-        <h5><%= t "price" %></h5>
-        <p class="card-text"><%= t "content" %></p>
+        <h5><%= t ".price" %></h5>
+        <p class="card-text"><%= t ".content" %></p>
       </div>
     </div>
   </div>

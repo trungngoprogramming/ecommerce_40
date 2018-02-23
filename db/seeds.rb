@@ -25,13 +25,6 @@ end
     parent_id: rand(0..3))
 end
 
-50.times do |n|
-  Cart.create!(price: rand(1..500),
-    quantity: rand(0..200),
-    discount: rand(0..50),
-    total_price: rand(100..500))
-end
-
 100.times do |n|
   Product.create!(name: "item-#{n+1}",
     price: rand(1..500),
