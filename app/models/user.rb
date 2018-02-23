@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :carts, dependent: :destroy
+  has_many :product_carts, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :suggest_products, dependent: :destroy
   has_many :comments, dependent: :destroy
