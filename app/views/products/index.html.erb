@@ -24,7 +24,7 @@
       <h3><%= t ".name" %>: <%= link_to p.name, product_path(p) %></h3>
       <h4><%= t ".price" %>: <%= product_unit p.price, "$" %></h4>
       <h4><%= t ".rate" %>: <%= product_unit p.rate, "star" %></h4>
-      <h5><%= link_to t("add_to_cart"), "#" %></h5>
+      <h5><%= link_to t("add_to_cart"), cart_path(p), method: :patch %></h5>
     </div>
   <% end %>
 </div>
