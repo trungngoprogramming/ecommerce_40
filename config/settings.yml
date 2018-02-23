@@ -58,3 +58,5 @@ cart:
 quantity:
   number_field:
     min: 1
+  increase:
+    number: 1

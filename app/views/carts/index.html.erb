@@ -13,7 +13,12 @@
       <tbody>
         <td><%= find_cart_product(a).product_name %></td>
         <td><%= product_unit find_cart_product(a).price, "$" %></td>
-        <td><%= find_cart_product(a).quantity %></td>
+        <td>
+          <%= find_cart_product(a).quantity %>
+          <%= link_to "", minus_path(a, cart_id: a.cart_id), method: :patch, class: "glyphicon glyphicon-minus" %>
+          |
+          <%= link_to "", plus_path(a, cart_id: a.cart_id), method: :patch, class: "glyphicon glyphicon-plus" %>
+        </td>
         <td><%= product_unit find_cart_product(a).discount, "%" %></td>
         <td><%= link_to t(".destroy"), cart_path(a), method: :delete %></td>
       </tbody>

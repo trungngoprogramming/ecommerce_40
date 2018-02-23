@@ -42,6 +42,7 @@ class CartsController < ApplicationController
 
   def update_total_price total_price
     return if @item_of_cart.update_attributes(total_price: total_price)
+    flash[:danger] = t "cart.not_update_total_price"
   end
 
   def insert_item quantity, total_price
