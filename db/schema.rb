@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222081543) do
+ActiveRecord::Schema.define(version: 20180223021123) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float "price", limit: 24
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180222081543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "product_name"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -62,6 +63,15 @@ ActiveRecord::Schema.define(version: 20180222081543) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "product_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "cart_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_product_carts_on_cart_id"
+    t.index ["product_id"], name: "index_product_carts_on_product_id"
+  end
+
   create_table "product_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "content"
@@ -87,13 +97,6 @@ ActiveRecord::Schema.define(version: 20180222081543) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.index ["product_group_id"], name: "index_products_on_product_group_id"
-  end
-
-  create_table "products_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "cart_id"
-    t.bigint "product_id"
-    t.index ["cart_id"], name: "index_products_carts_on_cart_id"
-    t.index ["product_id"], name: "index_products_carts_on_product_id"
   end
 
   create_table "suggest_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -134,8 +137,8 @@ ActiveRecord::Schema.define(version: 20180222081543) do
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "product_carts", "carts"
+  add_foreign_key "product_carts", "products"
   add_foreign_key "products", "product_groups"
-  add_foreign_key "products_carts", "carts"
-  add_foreign_key "products_carts", "products"
   add_foreign_key "suggest_products", "users"
 end

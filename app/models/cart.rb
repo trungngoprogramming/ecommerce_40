@@ -1,3 +1,3 @@
 class Cart < ApplicationRecord
-  has_many :products_carts, dependent: :destroy
+  has_many :product_carts, dependent: :destroy
 end

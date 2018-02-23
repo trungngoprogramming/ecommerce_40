@@ -1,32 +1,56 @@
 en:
-  product_name: "Product"
-  hot_trend: "Hot Trend"
-  shop_name: "ePhone Shop"
-  smartphone: "Smartphone"
-  laptop: "Laptop"
-  desktop: "Desktop"
-  tablet: "Tablet"
-  gadget: "Gadget"
-  return_goods: "Return Goods"
-  item: "Item"
-  price: "Price"
-  rate: "Rate"
-  star: "star"
-  content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  layouts:
+    footer:
+      about: "About"
+      contact: "Contact"
+    header:
+      shop_name: "ePhone Shop"
+      cart: "Cart"
+      account: "Account"
+      login: "Login"
+      logout: "Logout"
+      home: "Home"
+      profile: "Profile"
+      settings: "Settings"
+    sidebar:
+      smartphone: "Smartphone"
+      laptop: "Laptop"
+      desktop: "Desktop"
+      tablet: "Tablet"
+      gadget: "Gadget"
+      return_goods: "Return Goods"
+    application:
+      shop_name: "ePhone Shop"
+
+  products:
+    index:
+      name: "Product"
+      price: "Price"
+      rate: "Rate"
+      star: "star"
+    show:
+      description: "Description"
+      rate: "Rate"
+      discount: "Discount"
+      color: "Color"
+      price: "Price"
+      product_name: "Product"
+      size: "Size"
+      add_to_cart: "Add to Cart"
+      star: "star"
+
+  sessions:
+    new:
+      login: "Login"
+
+  static_pages:
+    home:
+      hot_trend: "Hot Trend"
+      item: "Item"
+      price: "Price"
+      content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Amet numquam aspernatur!"
-  login: "Login"
-  about: "About"
-  contact: "Contact"
-  cart: "Cart"
-  home: "Home"
-  profile: "Profile"
-  settings: "Settings"
-  logout: "Logout"
-  account: "Account"
-  size: "Size"
-  color: "Color"
-  discount: "Discount"
-  description: "Description"
+
 
   user:
     welcome: "Welcome to the ePhone shop"
