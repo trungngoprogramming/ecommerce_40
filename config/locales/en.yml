@@ -51,6 +51,15 @@ en:
       content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Amet numquam aspernatur!"
 
+  carts:
+    index:
+      destroy: "Delete"
+      product_name: "Product"
+      price: "Price"
+      quantity: "Quantity"
+      discount: "Discount"
+      setting: "Setting"
+      total_price: "Total Price"
 
   user:
     welcome: "Welcome to the ePhone shop"
@@ -96,3 +105,17 @@ en:
     description:
       too_long: "Description is too long"
     dont_find: "Don't find Product"
+    first_login: "First you must login"
+    not_add_to_cart: "Not add item to cart"
+
+  cart:
+    not_update_quantity: "Not update Quantity"
+    not_load_paginate: "Can't load Paginate"
+    not_update: "Can't not update"
+    not_find_item: "Can't find Item of Cart"
+    not_find_user: "Can't find User"
+    not_destroy_item: "Can't destroy item"
+
+  product_cart:
+    not_save: "Can't save Product Cart"
+    not_found_item: "Can't found Item of Product_Cart"

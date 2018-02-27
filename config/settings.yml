@@ -41,3 +41,20 @@ product:
 comment:
   content:
     max_length: 255
+
+cart:
+  product:
+    quantity: 1
+  discount:
+    percent: 100
+  number_order:
+    min: 0
+    increase: 1
+  per_page:
+    size: 5
+  total_price:
+    no_price: 0
+
+quantity:
+  number_field:
+    min: 1

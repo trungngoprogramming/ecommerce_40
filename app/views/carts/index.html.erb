@@ -1,0 +1,31 @@
+<table class="table wd-75">
+  <thead>
+    <tr>
+      <th><%= t ".product_name" %></th>
+      <th><%= t ".price" %></th>
+      <th><%= t ".quantity" %></th>
+      <th><%= t ".discount" %></th>
+      <th><%= t ".setting" %></th>
+    </tr>
+  </thead>
+  <% if product_of_user? %>
+    <% @product_cart_user.each do |a| %>
+      <tbody>
+        <td><%= find_cart_product(a).product_name %></td>
+        <td><%= product_unit find_cart_product(a).price, "$" %></td>
+        <td><%= find_cart_product(a).quantity %></td>
+        <td><%= product_unit find_cart_product(a).discount, "%" %></td>
+        <td><%= link_to t(".destroy"), cart_path(a), method: :delete %></td>
+      </tbody>
+    <% end %>
+    <tfoot>
+      <td><%= t ".total_price" %></td>
+      <td><%= product_unit total_price, "$" %></td>
+    </tfoot>
+  <% else %>
+    <tfoot>
+      <td><%= t ".total_price" %></td>
+      <td><%= product_unit "0", "$" %></td>
+    </tfoot>
+  <% end %>
+</table>
