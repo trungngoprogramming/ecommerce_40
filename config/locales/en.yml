@@ -115,6 +115,8 @@ en:
     not_find_item: "Can't find Item of Cart"
     not_find_user: "Can't find User"
     not_destroy_item: "Can't destroy item"
+    not_update_total_price: "Not update Totlal Price"
+    item_more: "Quantity of Item must be greater than zero"
 
   product_cart:
     not_save: "Can't save Product Cart"
