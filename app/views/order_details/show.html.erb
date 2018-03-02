@@ -1,0 +1,32 @@
+<table class="table wd-75">
+  <thead>
+    <tr>
+      <th><%= t ".product_name" %></th>
+      <th><%= t ".quantity" %></th>
+      <th><%= t ".discount" %></th>
+      <th><%= t ".total_price" %></th>
+    </tr>
+  </thead>
+
+  <% if order_present %>
+    <tbody>
+      <% @load_order.order_details.each do |f| %>
+        <tr>
+          <td><%= load_product_name f %></td>
+          <td><%= f.quantity %></td>
+          <td><%= f.discount %></td>
+          <td><%= f.total_price %></td>
+        </tr>
+      <% end %>
+      <tfoot>
+        <td><%= t ".total_price" %></td>
+        <td><%= product_unit @load_order.total_price, "$" %></td>
+    </tfoot>
+    </tbody>
+  <% else %>
+    <tfoot>
+      <td><%= t ".total_price" %></td>
+      <td><%= product_unit "0", "$" %></td>
+    </tfoot>
+  <% end %>
+</table>

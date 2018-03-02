@@ -20,7 +20,7 @@
         <td><%= status f %></td>
         <td><%= f.total_price %></td>
         <td>
-          <%= link_to t(".detail"), "#" %>
+          <%= link_to t(".detail"), order_detail_path(f) %>
         </td>
       </tr>
     <% end %>
