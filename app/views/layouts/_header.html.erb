@@ -4,10 +4,10 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t(".home"), root_path %></li>
-        <li>
-          <%= link_to "#{t(".cart")}(#{current_user.product_carts.count})", carts_path %>
-        </li>
         <% if logged_in? %>
+          <li>
+            <%= link_to "#{t(".cart")}(#{current_user.product_carts.count})", carts_path %>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t ".account" %> <b class="caret"></b>
@@ -23,6 +23,7 @@
             </ul>
           </li>
         <% else %>
+          <li><%= link_to t(".cart"), carts_path %></li>
           <li><%= link_to t(".log_in"), login_path %></li>
         <% end %>
       </ul>
