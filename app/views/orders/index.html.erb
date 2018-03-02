@@ -1,0 +1,28 @@
+<table class="table wd-75">
+  <thead>
+    <tr>
+      <th><%= t ".firstname" %></th>
+      <th><%= t ".lastname" %></th>
+      <th><%= t ".address_ship" %></th>
+      <th><%= t ".total_product_order" %></th>
+      <th><%= t ".status" %></th>
+      <th><%= t ".total_price" %></th>
+      <th><%= t ".settings" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.orders.each do |f| %>
+      <tr>
+        <td><%= current_user.firstname %></td>
+        <td><%= current_user.lastname %></td>
+        <td><%= f.address_ship %></td>
+        <td><%= f.order_number %></td>
+        <td><%= status f %></td>
+        <td><%= f.total_price %></td>
+        <td>
+          <%= link_to t(".detail"), "#" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

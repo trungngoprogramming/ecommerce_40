@@ -26,6 +26,7 @@
     <tfoot>
       <td><%= t ".total_price" %></td>
       <td><%= product_unit total_price, "$" %></td>
+      <td><b><%= link_to t(".buy"), new_order_path %></b></td>
     </tfoot>
   <% else %>
     <tfoot>

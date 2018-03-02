@@ -7,7 +7,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.datetime :paid_date
       t.datetime :date_ship
       t.datetime :date_of_receipt
-      t.integer :status
+      t.integer :status, default: 0, null: false
       t.references :user, foreign_key: true
 
       t.timestamps

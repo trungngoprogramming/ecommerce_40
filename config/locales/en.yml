@@ -12,6 +12,7 @@ en:
       home: "Home"
       profile: "Profile"
       settings: "Settings"
+      orders: "Orders"
     sidebar:
       smartphone: "Smartphone"
       laptop: "Laptop"
@@ -60,6 +61,18 @@ en:
       discount: "Discount"
       setting: "Setting"
       total_price: "Total Price"
+      buy: "Buy"
+
+  orders:
+    index:
+      firstname: "Firstname"
+      lastname: "Lastname"
+      address_ship: "Address Ship"
+      status: "Status"
+      total_product_order: "Total Product Order"
+      total_price: "Total Price"
+      settings: "Settings"
+      detail: "Detail"
 
   user:
     welcome: "Welcome to the ePhone shop"
@@ -84,6 +97,17 @@ en:
   order:
     address:
       too_long: "Address is too long"
+      not_save: "Not save Address"
+      not_send: "Not send Address"
+      not_order_item: "Can't not order Item"
+      not_remove_cart: "Can't not remove Cart"
+    status:
+      considering: "Considering"
+      considered: "Considered"
+      moving: "Moving"
+      arrived: "Arrived"
+    cart:
+      not_item: "Not item can order"
 
   suggest_product:
     product_name:

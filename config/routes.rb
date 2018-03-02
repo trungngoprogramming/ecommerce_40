@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   patch "/plus/:id", to: "cart_items#plus", as: :plus
   patch "/minus/:id", to: "cart_items#minus", as: :minus
+  post "address", to: "orders#load_address"
 
   resources :carts, only: [:index, :update, :destroy]
   resources :products, only: [:index, :show]
+  resources :orders, only: [:new, :index]
 
 end
