@@ -62,6 +62,7 @@ en:
       setting: "Setting"
       total_price: "Total Price"
       buy: "Buy"
+      total_price_with_discount: "Total Price with discount"
 
   orders:
     index:
@@ -73,6 +74,11 @@ en:
       total_price: "Total Price"
       settings: "Settings"
       detail: "Detail"
+
+  order_details:
+    show:
+      destroy: "Delete"
+      confirm: "Confirm"
 
   user:
     welcome: "Welcome to the ePhone shop"
@@ -148,3 +154,8 @@ en:
   product_cart:
     not_save: "Can't save Product Cart"
     not_found_item: "Can't found Item of Product_Cart"
+
+  order_detail:
+    not_find: "Can't find Order Details"
+    not_destroy: "Can't delete Order Details"
+    not_update: "Can't update Order Details"
