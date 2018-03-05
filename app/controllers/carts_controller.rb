@@ -17,18 +17,15 @@ class CartsController < ApplicationController
       insert_item Settings.cart.product.quantity, total_money_must_pay
     end
     respond_to do |format|
-      format.js
+      format.js{redirect_to request.referer}
     end
   end
 
   def destroy
     @cart.destroy
-    if @cart
-      respond_to do |format|
-        format.js{redirect_to request.referer}
-      end
-    else
-      flash[:danger] = t "cart.not_destroy_item"
+    flash[:danger] = t "cart.not_destroy_item" unless @cart
+    respond_to do |format|
+      format.js{redirect_to request.referer}
     end
   end
 
