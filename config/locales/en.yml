@@ -95,6 +95,7 @@ en:
       invalid: "User or Password is invalid"
 
   order:
+    not_find: "Can't find order"
     address:
       too_long: "Address is too long"
       not_save: "Not save Address"
@@ -108,6 +109,8 @@ en:
       arrived: "Arrived"
     cart:
       not_item: "Not item can order"
+    detail:
+      not_find: "Can't product order"
 
   suggest_product:
     product_name:

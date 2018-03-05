@@ -8,18 +8,25 @@ class CartItemsController < ApplicationController
   def minus
     if @item_of_cart.quantity == 1
       flash[:danger] = t "cart.item_more"
-      redirect_to request.referer
+    elsif @item_of_cart.update_attributes quantity:
+      @item_of_cart.quantity - Settings.quantity.increase.number
     else
-      return redirect_to request.referer if @item_of_cart.update_attributes quantity:
-        @item_of_cart.quantity - Settings.quantity.increase.number
       flash[:danger] = t "cart.not_update_quantity"
+    end
+    respond_to do |format|
+      format.js{redirect_to request.referer}
     end
   end
 
   def plus
-    return redirect_to request.referer if @item_of_cart.update_attributes quantity:
+    if @item_of_cart.update_attributes quantity:
       @item_of_cart.quantity + Settings.quantity.increase.number
-    flash[:danger] = t "cart.not_update_quantity"
+    else
+      flash[:danger] = t "cart.not_update_quantity"
+    end
+    respond_to do |format|
+      format.js{redirect_to request.referer}
+    end
   end
 
   private

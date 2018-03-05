@@ -15,12 +15,14 @@
         <td><%= product_unit find_cart_product(a).price, "$" %></td>
         <td>
           <%= find_cart_product(a).quantity %>
-          <%= link_to "", minus_path(a, cart_id: a.cart_id), method: :patch, class: "glyphicon glyphicon-minus" %>
+          <%= link_to "", minus_path(a, cart_id: a.cart_id),remote: true , method: :patch,
+            class: "glyphicon glyphicon-minus" %>
           |
-          <%= link_to "", plus_path(a, cart_id: a.cart_id), method: :patch, class: "glyphicon glyphicon-plus" %>
+          <%= link_to "", plus_path(a, cart_id: a.cart_id), remote: true, method: :patch,
+            class: "glyphicon glyphicon-plus" %>
         </td>
         <td><%= product_unit find_cart_product(a).discount, "%" %></td>
-        <td><%= link_to t(".destroy"), cart_path(a), method: :delete %></td>
+        <td><%= link_to t(".destroy"), cart_path(a), remote: true, method: :delete %></td>
       </tbody>
     <% end %>
     <tfoot>
