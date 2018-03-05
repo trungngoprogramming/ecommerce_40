@@ -1,0 +1,35 @@
+<table class="table wd-75">
+  <thead>
+    <tr>
+      <th><%= t ".firstname" %></th>
+      <th><%= t ".lastname" %></th>
+      <th><%= t ".address_ship" %></th>
+      <th><%= t ".total_product_order" %></th>
+      <th><%= t ".status" %></th>
+      <th><%= t ".total_price" %></th>
+      <th><%= t ".date" %></th>
+    </tr>
+  </thead>
+  <% @orders.each do |order| %>
+    <tbody>
+      <tr>
+        <td><%= user_order(order).firstname %></td>
+        <td><%= user_order(order).lastname %></td>
+        <td><%= order.address_ship %></td>
+        <td><%= order.order_number %></td>
+        <td class="dropdown">
+          <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown">
+            <%= status(order.status) %> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu top-80">
+            <li><%= link_to t(".moving"), admin_order_path(order, status: "moving"),remote: true, method: :patch %></li>
+            <li><%= link_to t(".arrived"), admin_order_path(order, status: "arrived"),remote: true, method: :patch %></li>
+          </ul>
+        </td>
+        <td><%= order.total_price %></td>
+        <td><%= order.created_at %></td>
+      </tr>
+    </tbody>
+  <% end %>
+  <%= will_paginate @orders %>
+</table>

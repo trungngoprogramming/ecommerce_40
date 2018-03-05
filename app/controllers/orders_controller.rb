@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
 
   def address_present
     if current_user.orders.create address_ship: @address,
-      order_number: @product_cart_user.count, total_price: total_price
+      order_number: @product_cart_user.count, total_price: total_price_with_discount
       add_order_detail
     else
       flash[:danger] = t "order.address.not_save"

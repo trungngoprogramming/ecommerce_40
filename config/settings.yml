@@ -1,3 +1,7 @@
+auth:
+  admin:
+    role: 1
+
 user:
   firstname:
     max_length: 25
@@ -38,6 +42,10 @@ product:
   per_page:
     size: 10
 
+order:
+  per_page:
+    size: 10
+
 comment:
   content:
     max_length: 255
@@ -61,3 +69,10 @@ quantity:
   increase:
     number: 1
 
+order:
+  status:
+    considered: 1
+    moving: 2
+    arrived: 3
+  per_page:
+    size: 10

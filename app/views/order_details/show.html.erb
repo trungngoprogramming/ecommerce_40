@@ -2,25 +2,24 @@
   <thead>
     <tr>
       <th><%= t ".product_name" %></th>
+      <th><%= t ".price" %></th>
       <th><%= t ".quantity" %></th>
-      <th><%= t ".discount" %></th>
       <th><%= t ".total_price" %></th>
+      <th><%= t ".discount" %></th>
+      <th><%= t ".total_price_with_discount" %></th>
     </tr>
   </thead>
 
   <% if order_present %>
     <tbody>
-      <% @load_order.order_details.each do |f| %>
-        <tr>
-          <td><%= load_product_name f %></td>
-          <td><%= f.quantity %></td>
-          <td><%= f.discount %></td>
-          <td><%= f.total_price %></td>
-        </tr>
-      <% end %>
+      <%= render "order_details/table" %>
       <tfoot>
         <td><%= t ".total_price" %></td>
         <td><%= product_unit @load_order.total_price, "$" %></td>
+        <% if @load_order.status == "considering" %>
+          <td><%= link_to t(".confirm"), order_detail_path(@load_order), method: :patch %></td>
+          <td><%= link_to t(".destroy"), order_detail_path(@load_order), method: :delete %></td>
+        <% end %>
     </tfoot>
     </tbody>
   <% else %>

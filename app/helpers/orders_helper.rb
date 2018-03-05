@@ -1,5 +1,11 @@
 module OrdersHelper
-  def status f
-    t "order.status.#{f.status}"
+  def status status
+    t "order.status.#{status}"
+  end
+
+  def user_order order
+    user = User.find_by id: order.user_id
+    flash[:danger] = t "admin.order.not_load_user" unless user
+    user
   end
 end

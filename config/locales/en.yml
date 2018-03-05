@@ -13,6 +13,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       orders: "Orders"
+      orders_of_user: "Orders of User"
     sidebar:
       smartphone: "Smartphone"
       laptop: "Laptop"
@@ -62,6 +63,7 @@ en:
       setting: "Setting"
       total_price: "Total Price"
       buy: "Buy"
+      total_price_with_discount: "Total Price with discount"
 
   orders:
     index:
@@ -73,6 +75,30 @@ en:
       total_price: "Total Price"
       settings: "Settings"
       detail: "Detail"
+
+  order_details:
+    show:
+      destroy: "Delete"
+      confirm: "Confirm"
+  admin:
+    orders:
+      index:
+        date: "Order date"
+        firstname: "Firstname"
+        lastname: "Lastname"
+        address_ship: "Address Ship"
+        status: "Status"
+        total_product_order: "Total Product Order"
+        total_price: "Total Price"
+        considering: "Considering"
+        considered: "Considered"
+        moving: "Moving"
+        arrived: "Arrived"
+    order:
+      not_load_user: "Can't load user"
+      not_find: "Can't find order"
+      status:
+        not_update: "Can't update status"
 
   user:
     welcome: "Welcome to the ePhone shop"
@@ -96,6 +122,7 @@ en:
 
   order:
     not_find: "Can't find order"
+    not_load: "Can't load orders"
     address:
       too_long: "Address is too long"
       not_save: "Not save Address"
@@ -134,6 +161,7 @@ en:
     dont_find: "Don't find Product"
     first_login: "First you must login"
     not_add_to_cart: "Not add item to cart"
+    not_load: "Can't load products"
 
   cart:
     not_update_quantity: "Not update Quantity"
@@ -148,3 +176,10 @@ en:
   product_cart:
     not_save: "Can't save Product Cart"
     not_found_item: "Can't found Item of Product_Cart"
+
+  order_detail:
+    not_find: "Can't find Order Details"
+    not_destroy: "Can't delete Order Details"
+    not_update: "Can't update Order Details"
+  auth:
+    not_admin: "You aren't admin"

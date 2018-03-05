@@ -4,7 +4,9 @@
       <th><%= t ".product_name" %></th>
       <th><%= t ".price" %></th>
       <th><%= t ".quantity" %></th>
+      <th><%= t ".total_price" %></th>
       <th><%= t ".discount" %></th>
+      <th><%= t ".total_price_with_discount" %></th>
       <th><%= t ".setting" %></th>
     </tr>
   </thead>
@@ -21,13 +23,15 @@
           <%= link_to "", plus_path(a, cart_id: a.cart_id), remote: true, method: :patch,
             class: "glyphicon glyphicon-plus" %>
         </td>
+        <td><%= product_unit total_price_not_discount(find_cart_product(a)), "$" %></td>
         <td><%= product_unit find_cart_product(a).discount, "%" %></td>
+        <td><%= product_unit find_cart_product(a).total_price, "$" %></td>
         <td><%= link_to t(".destroy"), cart_path(a), remote: true, method: :delete %></td>
       </tbody>
     <% end %>
     <tfoot>
       <td><%= t ".total_price" %></td>
-      <td><%= product_unit total_price, "$" %></td>
+      <td><%= product_unit total_price_with_discount, "$" %></td>
       <td><b><%= link_to t(".buy"), new_order_path %></b></td>
     </tfoot>
   <% else %>

@@ -3,7 +3,11 @@ module CartsHelper
     return true if @product_cart_user
   end
 
-  def total_price
+  def total_price_not_discount item
+    item.price * item.quantity
+  end
+
+  def total_price_with_discount
     total_pay = Settings.cart.total_price.no_price
     @product_cart_user.each do |p|
       total_pay += Cart.find_by(id: p.cart_id).total_price
@@ -12,9 +16,7 @@ module CartsHelper
   end
 
   def load_product_cart_user
-    @product_cart_user = current_user.product_carts
-    return if @product_cart_user
-    must_login
+    @product_cart_user = current_user.product_carts if current_user
   end
 
   def find_cart_product item
