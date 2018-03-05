@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  enum role: %i(admin user)
+
   has_many :product_carts, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :suggest_products, dependent: :destroy

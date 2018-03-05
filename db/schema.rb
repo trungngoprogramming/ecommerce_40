@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20180227092818) do
     t.string "company"
     t.string "email"
     t.string "password_digest"
-    t.integer "role"
+    t.integer "role", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

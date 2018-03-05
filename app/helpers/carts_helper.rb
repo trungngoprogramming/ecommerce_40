@@ -16,9 +16,7 @@ module CartsHelper
   end
 
   def load_product_cart_user
-    @product_cart_user = current_user.product_carts
-    return if @product_cart_user
-    must_login
+    @product_cart_user = current_user.product_carts if current_user
   end
 
   def find_cart_product item

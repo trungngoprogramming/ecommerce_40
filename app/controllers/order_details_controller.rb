@@ -7,7 +7,7 @@ class OrderDetailsController < ApplicationController
 
   def update
     flash[:danger] = t "order_detail.not_update" unless @load_order.update_attributes status:
-      Settings.order.status.considered
+      Order.statuses[:considered]
     redirect_to orders_url
   end
 

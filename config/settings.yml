@@ -38,6 +38,10 @@ product:
   per_page:
     size: 10
 
+order:
+  per_page:
+    size: 10
+
 comment:
   content:
     max_length: 255
@@ -62,5 +66,5 @@ quantity:
     number: 1
 
 order:
-  status:
-    considered: 1
+  per_page:
+    size: 10

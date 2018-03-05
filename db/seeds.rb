@@ -5,7 +5,7 @@ User.create!(firstname: "Admin",
   email: "admin@gmail.com",
   phone: 1234567892,
   password: "123123123",
-  role: 1)
+  role: 0)
 
 99.times do |n|
   User.create!(firstname: Faker::Name.first_name,
@@ -14,8 +14,7 @@ User.create!(firstname: "Admin",
     gender: rand(1..2),
     email: "example-#{n+1}@gmail.com",
     phone: 1234567892,
-    password: "123123123",
-    role: 2)
+    password: "123123123")
 end
 
 50.times do |n|

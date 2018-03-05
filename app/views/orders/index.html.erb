@@ -11,16 +11,16 @@
     </tr>
   </thead>
   <tbody>
-    <% current_user.orders.each do |f| %>
+    <% current_user.orders.each do |order| %>
       <tr>
         <td><%= current_user.firstname %></td>
         <td><%= current_user.lastname %></td>
-        <td><%= f.address_ship %></td>
-        <td><%= f.order_number %></td>
-        <td><%= status f %></td>
-        <td><%= f.total_price %></td>
+        <td><%= order.address_ship %></td>
+        <td><%= order.order_number %></td>
+        <td><%= status order.status %></td>
+        <td><%= order.total_price %></td>
         <td>
-          <%= link_to t(".detail"), order_detail_path(f) %>
+          <%= link_to t(".detail"), order_detail_path(order) %>
         </td>
       </tr>
     <% end %>

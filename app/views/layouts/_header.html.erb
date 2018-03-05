@@ -4,7 +4,10 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t(".home"), root_path %></li>
-        <% if logged_in? %>
+        <% if current_user %>
+          <% if current_user.role == "admin" %>
+            <li><%= link_to t(".orders_of_user"), admin_orders_url %></li>
+          <% end %>
           <li>
             <%= link_to "#{t(".cart")}(#{current_user.product_carts.count})", carts_path %>
           </li>
