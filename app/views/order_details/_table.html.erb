@@ -1,0 +1,10 @@
+<% @load_order.order_details.each do |f| %>
+  <tr>
+    <td><%= f.product.name %></td>
+    <td><%=  f.product.price %></td>
+    <td><%= f.quantity %></td>
+    <td><%= f.product.price * f.quantity %></td>
+    <td><%= f.discount %></td>
+    <td><%= f.total_price %></td>
+  </tr>
+<% end %>

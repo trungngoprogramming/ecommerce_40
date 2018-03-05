@@ -61,3 +61,6 @@ quantity:
   increase:
     number: 1
 
+order:
+  status:
+    considered: 1
