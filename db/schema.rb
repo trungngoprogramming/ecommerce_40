@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227092818) do
+ActiveRecord::Schema.define(version: 20180306061718) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.float "price", limit: 24
@@ -100,6 +100,14 @@ ActiveRecord::Schema.define(version: 20180227092818) do
     t.index ["product_group_id"], name: "index_products_on_product_group_id"
   end
 
+  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "rating"
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_ratings_on_product_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "suggest_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "quantity"
@@ -141,5 +149,7 @@ ActiveRecord::Schema.define(version: 20180227092818) do
   add_foreign_key "product_carts", "products"
   add_foreign_key "product_carts", "users"
   add_foreign_key "products", "product_groups"
+  add_foreign_key "ratings", "products"
+  add_foreign_key "ratings", "users"
   add_foreign_key "suggest_products", "users"
 end

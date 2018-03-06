@@ -1,0 +1,3 @@
+<h3><%= t ".hello" %>! <%= @order.user.firstname %></h3>
+<h3><%= t ".order" %> <%= @order.status %></h3>
+<h3><%= link_to t("detail"), order_detail_url(@order) %></h3>

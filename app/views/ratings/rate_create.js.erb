@@ -1,0 +1,9 @@
+<% (1..@product_rate.rating).each do |rate| %>
+  $("#rating-<%= rate %>").css("color", "#e74c3c");
+<% end %>
+
+<% ((@product_rate.rating+1)..5).each do |rate| %>
+  $("#rating-<%= rate %>").css("color", "#95a5a6");
+<% end %>
+
+location.reload();
