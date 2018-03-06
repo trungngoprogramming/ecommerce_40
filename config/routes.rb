@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :index]
   resources :order_details, only: [:show, :destroy, :update]
 
+  namespace :admin do
+    resources :orders, only: :index
+    patch "/status_moving/:id", to: "orders#status_moving", as: :status_moving
+    patch "/status_arrived/:id", to: "orders#status_arrived", as: :status_arrived
+  end
+
 end
