@@ -2,9 +2,11 @@ class OrdersController < ApplicationController
   before_action :load_product_cart_user, only: %i(load_address new)
   before_action :must_login, only: %i(new index)
   before_action :cart_present, only: %i(new load_address)
+  before_action :stocking?, only: :new
 
   include SessionsHelper
   include CartsHelper
+  include OrdersHelper
 
   def index; end
 

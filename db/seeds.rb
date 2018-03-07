@@ -1,11 +1,20 @@
 User.create!(firstname: "Admin",
   lastname: "Admin",
-  birthday: "1/10/1996",
+  birthday: "30/03/1996",
   gender: 1,
-  email: "admin@gmail.com",
+  email: "admin@admin.com",
   phone: 1234567892,
   password: "123123123",
   role: 1)
+
+User.create!(firstname: "Trung",
+  lastname: "Ngo Quang",
+  birthday: "30/03/1996",
+  gender: 1,
+  email: "trungngo.programming@gmail.com",
+  phone: 1234567892,
+  password: "123123123",
+  role: 2)
 
 99.times do |n|
   User.create!(firstname: Faker::Name.first_name,
@@ -34,7 +43,13 @@ end
     description: Faker::Lorem.paragraph,
     quantity_product_available: rand(0..200),
     discount_customer_available: rand(0..50),
-    rate: rand(1..5),
     image: Faker::Avatar.image,
     date_of_entry: "1/10/2018")
+end
+
+500.times do |n|
+  Rating.create!(rating: rand(1..5),
+    user_id: rand(1..99),
+    product_id: rand(1..100)
+    )
 end

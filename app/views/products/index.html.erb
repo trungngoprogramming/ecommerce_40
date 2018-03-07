@@ -23,7 +23,12 @@
       </div>
       <h3><%= t ".name" %>: <%= link_to p.name, product_path(p) %></h3>
       <h4><%= t ".price" %>: <%= product_unit p.price, "$" %></h4>
-      <h4><%= t ".rate" %>: <%= product_unit p.rate, "star" %></h4>
+      <h4><%= t ".rate" %>: <%= product_unit average_rating(p), "star" %></h4>
+      <% if stocking p %>
+        <h2><b><%= t ".stocking" %></b></h2>
+      <% else %>
+        <h2><b><%= t ".out_of_stock" %></b></h2>
+      <% end %>
     </div>
   <% end %>
 </div>

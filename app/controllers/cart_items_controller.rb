@@ -1,17 +1,17 @@
 class CartItemsController < ApplicationController
   before_action :load_card_item, only: %i(minus plus)
   after_action :update_total_price_item, only: %i(minus plus)
+  before_action :stocking?, only: %i(minus plus)
 
   include SessionsHelper
   include CartsHelper
+  include OrdersHelper
 
   def minus
-    if @item_of_cart.quantity == 1
-      flash[:danger] = t "cart.item_more"
-    elsif @item_of_cart.update_attributes quantity:
-      @item_of_cart.quantity - Settings.quantity.increase.number
+    if @item_of_cart.quantity == Settings.cart.item.than_one
+      flash[:danger] = t("cart.item_more")
     else
-      flash[:danger] = t "cart.not_update_quantity"
+      update_decrease_quantity
     end
     respond_to do |format|
       format.js{redirect_to request.referer}
@@ -30,6 +30,12 @@ class CartItemsController < ApplicationController
   end
 
   private
+
+  def update_decrease_quantity
+    return if @item_of_cart.update_attributes quantity:
+      @item_of_cart.quantity - Settings.quantity.increase.number
+    flash[:danger] = t "cart.not_update_quantity"
+  end
 
   def update_total_price_item
     return if @item_of_cart.update_attributes total_price: total_pay_item_present

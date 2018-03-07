@@ -15,6 +15,10 @@ gem "bcrypt", "3.1.11"
 
 gem "config"
 
+gem "figaro"
+
+gem "font-awesome-rails"
+
 gem "rubocop", "~> 0.52.1", require: false
 
 # Use mysql as the database for Active Record
