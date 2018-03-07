@@ -9,7 +9,7 @@ class CartItemsController < ApplicationController
 
   def minus
     if @item_of_cart.quantity == Settings.cart.item.than_one
-      flash[:danger] = t("cart.item_more")
+      flash[:danger] = t "cart.item_more"
     else
       update_decrease_quantity
     end

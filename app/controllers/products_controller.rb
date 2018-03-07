@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   def index
     @product = Product.paginate(page: params[:page],
-      per_page: Settings.product.per_page.size)
+      per_page: Settings.product.per_page.size).search params[:q]
+    @product_search = @product.result
     flash[:danger] = t "product.not_load" unless @product
   end
 
