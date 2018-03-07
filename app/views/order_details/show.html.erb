@@ -16,7 +16,7 @@
       <tfoot>
         <td><%= t ".total_price" %></td>
         <td><%= product_unit @load_order.total_price, "$" %></td>
-        <% unless @load_order.status == "considered" %>
+        <% if @load_order.status == "considering" %>
           <td><%= link_to t(".confirm"), order_detail_path(@load_order), method: :patch %></td>
           <td><%= link_to t(".destroy"), order_detail_path(@load_order), method: :delete %></td>
         <% end %>

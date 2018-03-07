@@ -1,3 +1,7 @@
+auth:
+  admin:
+    role: 1
+
 user:
   firstname:
     max_length: 25
@@ -37,6 +41,15 @@ product:
     max_length: 255
   per_page:
     size: 10
+  rating:
+    zero: 0
+    round: 1
+
+order:
+  per_page:
+    size: 10
+  total_price:
+    round: 2
 
 comment:
   content:
@@ -64,3 +77,12 @@ quantity:
 order:
   status:
     considered: 1
+    moving: 2
+    arrived: 3
+  per_page:
+    size: 10
+
+admin:
+  email:
+    default: "trungngo1996dn@gmail.com"
+    wait: 5

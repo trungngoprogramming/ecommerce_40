@@ -6,6 +6,18 @@
     <h4><b><%= t ".color" %></b>: <%= @product.color %></h4>
     <h4><b><%= t ".discount" %></b>: <%= product_unit @product.discount, "%" %></h4>
     <h4><b><%= t ".description" %></b>: <%= @product.description %></h4>
-    <h4><b><%= t ".rate" %></b>: <%= product_unit @product.rate, t(".star") %></h4>
+    <h4><b><%= t ".average_rate" %></b>: <%= product_unit average_rating(@product), t(".star") %></h4>
+    <% if load_rating @product %>
+      <h4><b><%= t ".your_rate" %></b>: <%= product_unit load_rating(@product).rating, t(".star") %></h4>
+    <% end %>
+    <div class="ratings">
+      <% (1..5).each do |star| %>
+        <% if load_rating @product %>
+          <%= link_to (fa_icon "star", id: :rating), rating_path(@product, star), remote: true, method: :patch %>
+        <% else %>
+          <%= link_to (fa_icon "star", id: :rating), rate_path(@product, star), remote: true, method: :patch %>
+        <% end %>
+      <% end %>
+    </div>
     <h5><%= link_to t(".add_to_cart"), cart_path(@product), remote: true, method: :patch %></h5>
 </div>

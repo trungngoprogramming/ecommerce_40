@@ -37,12 +37,12 @@ module CartsHelper
     total_price = @product.price * Settings.cart.product.quantity
     discount_price = total_price * @product.discount_customer_available /
                      Settings.cart.discount.percent
-    _total_pay = total_price - discount_price
+    _total_pay = (total_price - discount_price)
   end
 
   def total_pay_item_present
     total_price = @item_of_cart.price * @item_of_cart.quantity
     discount_price = total_price * @item_of_cart.discount / Settings.cart.discount.percent
-    _total_pay = total_price - discount_price
+    _total_pay = (total_price - discount_price)
   end
 end

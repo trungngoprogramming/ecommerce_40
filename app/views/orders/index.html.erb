@@ -17,7 +17,7 @@
         <td><%= current_user.lastname %></td>
         <td><%= f.address_ship %></td>
         <td><%= f.order_number %></td>
-        <td><%= status f %></td>
+        <td><%= status f.status %></td>
         <td><%= f.total_price %></td>
         <td>
           <%= link_to t(".detail"), order_detail_path(f) %>

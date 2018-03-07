@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   def index
     @product = Product.paginate(page: params[:page],
       per_page: Settings.product.per_page.size)
+    flash[:danger] = t "product.not_load" unless @product
   end
 
   def show

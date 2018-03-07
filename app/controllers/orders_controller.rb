@@ -29,22 +29,34 @@ class OrdersController < ApplicationController
   end
 
   def address_present
-    if current_user.orders.create address_ship: @address,
-      order_number: @product_cart_user.count, total_price: total_price_with_discount
-      add_order_detail
-    else
+    if @address.blank?
       flash[:danger] = t "order.address.not_save"
+    else
+      order_error?
+    end
+  end
+
+  def order_error?
+    @order = current_user.orders.create address_ship: @address,
+    order_number: @product_cart_user.count, total_price: total_price_with_discount
+    if @order.save
+      add_order_detail
+      redirect_to orders_url
+      @address = nil
+    else
+      flash[:danger] = @order.errors[:address_ship]
+      redirect_to request.referer
     end
   end
 
   def add_order_detail
-    @product_cart_user.each do |item|
-      load_item item
-      item_present_add_order_detail item
-      cart_destroy
+    @product_cart_user.transaction do
+      @product_cart_user.find_each do |item|
+        load_item item
+        item_present_add_order_detail item
+        cart_destroy
+      end
     end
-    redirect_to orders_url
-    @address = nil
   end
 
   def item_present_add_order_detail f

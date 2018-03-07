@@ -9,7 +9,6 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.text :description
       t.integer :quantity_product_available
       t.float :discount_customer_available
-      t.integer :rate
       t.datetime :date_of_entry
       t.references :product_group, foreign_key: true
 
