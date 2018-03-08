@@ -76,6 +76,11 @@ en:
       settings: "Settings"
       detail: "Detail"
 
+  order_mailer:
+    status:
+      hello: "Hello"
+      order: "Your order is"
+
   order_details:
     show:
       destroy: "Delete"
@@ -99,6 +104,9 @@ en:
       not_find: "Can't find order"
       status:
         not_update: "Can't update status"
+        not_send_mail: "Can't send mail to user"
+      mail:
+        subject: "Status your order"
 
   user:
     welcome: "Welcome to the ePhone shop"

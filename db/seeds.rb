@@ -1,11 +1,20 @@
 User.create!(firstname: "Admin",
   lastname: "Admin",
-  birthday: "1/10/1996",
+  birthday: "30/03/1996",
   gender: 1,
-  email: "admin@gmail.com",
+  email: "admin@admin.com",
   phone: 1234567892,
   password: "123123123",
   role: 1)
+
+User.create!(firstname: "Trung",
+  lastname: "Ngo Quang",
+  birthday: "30/03/1996",
+  gender: 1,
+  email: "trungngo.programming@gmail.com",
+  phone: 1234567892,
+  password: "123123123",
+  role: 2)
 
 99.times do |n|
   User.create!(firstname: Faker::Name.first_name,

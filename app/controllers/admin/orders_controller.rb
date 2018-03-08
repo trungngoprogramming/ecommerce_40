@@ -13,8 +13,10 @@ module Admin
     def update
       if params[:status] == "moving" && @order.update_attributes(status:
         Settings.order.status.moving)
+        send_mail
       elsif params[:status] == "arrived" && @order.update_attributes(status:
         Settings.order.status.arrived)
+        send_mail
       else
         flash[:danger] = t "admin.order.status.not_update"
       end

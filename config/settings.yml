@@ -76,3 +76,8 @@ order:
     arrived: 3
   per_page:
     size: 10
+
+admin:
+  email:
+    default: "trungngo1996dn@gmail.com"
+    wait: 5
