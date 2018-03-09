@@ -13,6 +13,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       orders: "Orders"
+      orders_of_user: "Orders of User"
     sidebar:
       smartphone: "Smartphone"
       laptop: "Laptop"
@@ -29,9 +30,12 @@ en:
       price: "Price"
       rate: "Rate"
       star: "star"
+      stocking: "Stocking"
+      out_of_stock: "Out of stock"
     show:
       description: "Description"
-      rate: "Rate"
+      average_rate: "Average Rate"
+      your_rate: "Your Rate"
       discount: "Discount"
       color: "Color"
       price: "Price"
@@ -39,6 +43,7 @@ en:
       size: "Size"
       add_to_cart: "Add to Cart"
       star: "star"
+      out_of_stock: "Out of stock"
 
   sessions:
     new:
@@ -75,10 +80,38 @@ en:
       settings: "Settings"
       detail: "Detail"
 
+  order_mailer:
+    status:
+      hello: "Hello"
+      order: "Your order is"
+
   order_details:
     show:
       destroy: "Delete"
       confirm: "Confirm"
+  admin:
+    orders:
+      index:
+        date: "Order date"
+        firstname: "Firstname"
+        lastname: "Lastname"
+        address_ship: "Address Ship"
+        status: "Status"
+        total_product_order: "Total Product Order"
+        total_price: "Total Price"
+        considering: "Considering"
+        considered: "Considered"
+        moving: "Moving"
+        arrived: "Arrived"
+    order:
+      not_load_user: "Can't load user"
+      not_find: "Can't find order"
+      status:
+        not_update: "Can't update status"
+        not_send_mail: "Can't send mail to user"
+      mail:
+        subject: "Status your order"
+      not_destroy: "Order is not destroy"
 
   user:
     welcome: "Welcome to the ePhone shop"
@@ -102,6 +135,7 @@ en:
 
   order:
     not_find: "Can't find order"
+    not_load: "Can't load orders"
     address:
       too_long: "Address is too long"
       not_save: "Not save Address"
@@ -140,6 +174,10 @@ en:
     dont_find: "Don't find Product"
     first_login: "First you must login"
     not_add_to_cart: "Not add item to cart"
+    not_load: "Can't load product"
+    not_rate: "Can't rate"
+    not_load_rate: "Can't load your rate"
+    out_of_stock: "Sorry! Out of Stock"
 
   cart:
     not_update_quantity: "Not update Quantity"
@@ -150,6 +188,8 @@ en:
     not_destroy_item: "Can't destroy item"
     not_update_total_price: "Not update Totlal Price"
     item_more: "Quantity of Item must be greater than zero"
+    sory: "Sory!"
+    remaining: "Remaining"
 
   product_cart:
     not_save: "Can't save Product Cart"
@@ -159,3 +199,5 @@ en:
     not_find: "Can't find Order Details"
     not_destroy: "Can't delete Order Details"
     not_update: "Can't update Order Details"
+  auth:
+    not_admin: "You aren't admin"

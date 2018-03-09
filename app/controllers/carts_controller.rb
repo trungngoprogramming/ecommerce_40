@@ -7,14 +7,15 @@ class CartsController < ApplicationController
 
   include SessionsHelper
   include CartsHelper
+  include ProductsHelper
 
   def update
-    if @item_of_cart.present?
-      quantity = @item_of_cart.quantity + Settings.cart.product.quantity
-      update_quantity quantity
-      update_total_price total_money_must_pay
-    else
+    if stocking(@product) && @item_of_cart.present?
+      item_of_cart_present
+    elsif @item_of_cart.blank?
       insert_item Settings.cart.product.quantity, total_money_must_pay
+    else
+      flash[:danger] = t "product.out_of_stock"
     end
     respond_to do |format|
       format.js{redirect_to request.referer}
@@ -32,6 +33,12 @@ class CartsController < ApplicationController
   def index; end
 
   private
+
+  def item_of_cart_present
+    quantity = @item_of_cart.quantity + Settings.cart.product.quantity
+    update_quantity quantity
+    update_total_price total_money_must_pay
+  end
 
   def must_login
     return if logged_in?

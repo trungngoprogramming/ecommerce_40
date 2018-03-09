@@ -1,17 +1,17 @@
 class CartItemsController < ApplicationController
   before_action :load_card_item, only: %i(minus plus)
   after_action :update_total_price_item, only: %i(minus plus)
+  before_action :stocking?, only: %i(minus plus)
 
   include SessionsHelper
   include CartsHelper
+  include OrdersHelper
 
   def minus
-    if @item_of_cart.quantity == 1
+    if @item_of_cart.quantity == Settings.cart.item.than_one
       flash[:danger] = t "cart.item_more"
-    elsif @item_of_cart.update_attributes quantity:
-      @item_of_cart.quantity - Settings.quantity.increase.number
     else
-      flash[:danger] = t "cart.not_update_quantity"
+      update_decrease_quantity
     end
     respond_to do |format|
       format.js{redirect_to request.referer}
@@ -19,6 +19,7 @@ class CartItemsController < ApplicationController
   end
 
   def plus
+    compare_quantity_cart_item_product
     if @item_of_cart.update_attributes quantity:
       @item_of_cart.quantity + Settings.quantity.increase.number
     else
@@ -30,6 +31,20 @@ class CartItemsController < ApplicationController
   end
 
   private
+
+  def compare_quantity_cart_item_product
+    @item_of_cart.product_carts.each do |item|
+      next unless @item_of_cart.quantity >= item.product.quantity_product_available
+      flash[:danger] = "#{t 'cart.sory'} #{item.product.quantity_product_available} #{t 'cart.remaining'}"
+      @item_of_cart.update_attributes quantity: (item.product.quantity_product_available - 1)
+    end
+  end
+
+  def update_decrease_quantity
+    return if @item_of_cart.update_attributes quantity:
+      @item_of_cart.quantity - Settings.quantity.increase.number
+    flash[:danger] = t "cart.not_update_quantity"
+  end
 
   def update_total_price_item
     return if @item_of_cart.update_attributes total_price: total_pay_item_present

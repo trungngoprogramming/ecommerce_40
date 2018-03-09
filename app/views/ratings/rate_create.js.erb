@@ -1,0 +1,12 @@
+var star = <%= @product_rate.rating %>;
+
+for(var i = 0; i <= 5; i++){
+  if (i <= star) {
+    $("#rating-" + i).css("color", "#e74c3c");
+  }
+  else{
+    $("#rating-" + i).css("color", "#95a5a6");
+  }
+}
+
+location.reload();

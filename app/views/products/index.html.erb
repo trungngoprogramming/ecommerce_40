@@ -13,19 +13,33 @@
   </div>
 </div>
 
-<%= will_paginate @product %>
+
+<%= will_paginate @product_search %>
+
+<%= search_form_for @product do |f| %>
+  <div class="field">
+    <%= f.label :search_product %>
+    <%= f.text_field :name_cont %>
+    <%= f.submit "Search" %>
+  </div>
+<% end %>
 
 <div class = "row">
-  <% @product.each do |p| %>
+  <% @product_search.each do |p| %>
     <div class="col-md-6 mt-20">
       <div class="list-group-item mt-20 text-center">
         <%= link_to image_tag(p.image), product_path(p) %>
       </div>
       <h3><%= t ".name" %>: <%= link_to p.name, product_path(p) %></h3>
       <h4><%= t ".price" %>: <%= product_unit p.price, "$" %></h4>
-      <h4><%= t ".rate" %>: <%= product_unit p.rate, "star" %></h4>
+      <h4><%= t ".rate" %>: <%= product_unit average_rating(p), "star" %></h4>
+      <% if stocking p %>
+        <h2><b><%= t ".stocking" %></b></h2>
+      <% else %>
+        <h2><b><%= t ".out_of_stock" %></b></h2>
+      <% end %>
     </div>
   <% end %>
 </div>
 
-<%= will_paginate @product %>
+<%= will_paginate @product_search %>
