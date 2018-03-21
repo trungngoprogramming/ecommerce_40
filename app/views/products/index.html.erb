@@ -16,7 +16,7 @@
 <%= will_paginate @product %>
 
 <div class = "row">
-  <% @product.each do |p| %>
+  <% @products.each do |p| %>
     <div class="col-md-6 mt-20">
       <div class="list-group-item mt-20 text-center">
         <%= link_to image_tag(p.image), product_path(p) %>

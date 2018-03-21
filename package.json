@@ -1,5 +1,7 @@
 {
   "name": "project",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "mysql2": "^1.5.3"
+  }
 }

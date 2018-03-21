@@ -10,9 +10,9 @@ User.create!(firstname: "Admin",
 99.times do |n|
   User.create!(firstname: Faker::Name.first_name,
     lastname: Faker::Name.last_name,
-    birthday: "1/10/1996",
+    birthday: Faker::Date.birthday(16, 65),
     gender: rand(1..2),
-    email: "example-#{n+1}@gmail.com",
+    email: Faker::Internet.email,
     phone: 1234567892,
     password: "123123123",
     role: 2)

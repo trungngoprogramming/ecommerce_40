@@ -4,11 +4,12 @@ class User < ApplicationRecord
   has_many :suggest_products, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  before_save{self.email = email.downcase}
+  before_save :downcase_email
 
   validates :firstname, presence: true, length:
     {maximum: Settings.user.firstname.max_length,
      too_long: I18n.t("user.firstname.too_long")}
+
   validates :lastname, presence: true, length:
     {maximum: Settings.user.lastname.max_length,
      too_long: I18n.t("user.lastname.too_long")}
@@ -27,7 +28,7 @@ class User < ApplicationRecord
   validates :country, allow_nil: true, length:
     {maximum: Settings.user.country.max_length,
      too_long: I18n.t("user.country.too_long")}
-  validates :phone, presence: true, length:
+  validates :phone, presence: true, numericality: true, length:
     {minimum: Settings.user.phone.min_length,
      maximum: Settings.user.phone.max_length,
      too_long: I18n.t("user.phone.too_long"),
@@ -44,4 +45,8 @@ class User < ApplicationRecord
      minimum: Settings.user.password.min_length,
      too_short: I18n.t("user.password.too_short"),
      too_long: I18n.t("user.password.too_long")}
+
+  def downcase_email
+    self.email = email.downcase
+  end
 end
